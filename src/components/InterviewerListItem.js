@@ -12,9 +12,9 @@ export default function InterviewerListItem(props) {
   // };
 
   const interviewerClasses = classNames('interviewers__item', { 'interviewers__item--selected': props.selected});
-  console.log("props.selected " + props.selected)
+  // console.log("props.selected " + props.selected)
   if(props.selected === props.id) {
-    console.log("name " + props.name);
+    // console.log("name " + props.name);
 
   }
   // console.log(props.selected);
