@@ -1,16 +1,11 @@
 export function getAppointmentsForDay(state, day) {
-  // const filteredNames = state.users.filter(user => user.name === name);
-  // return filteredNames;
-
   const allAppointments = state.days.filter(object => object.name === day);
-  // console.log(allAppointments);
 
   if (allAppointments.length === 0) {
     return [];
   }
 
   const appointmentList = allAppointments[0].appointments;
-  // console.log(appointmentList)
 
   let results = [];
   for (let id of appointmentList) {
@@ -26,8 +21,7 @@ export function getInterview(state, interview) {
   
   for (const key in state.appointments){
     if (state.appointments[key].interview) {
-      // console.log("here");
-      // console.log(state.appointments[key].interview.student);
+
 
       let interviewerId = state.appointments[key].interview.interviewer;
       const interviewObject = {

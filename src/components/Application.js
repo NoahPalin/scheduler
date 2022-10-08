@@ -14,40 +14,10 @@ export default function Application(props) {
     cancelInterview
   } = useApplicationData();
 
-  // const [state, setState] = useState({
-  //   day: "Monday",
-  //   days: [],
-  //   // you may put the line below, but will have to remove/comment hardcoded appointments variable
-  //   appointments: {},
-  //   interviewers: {}
-  // });
-
-  // const setDay = day => setState({ ...state, day });
-
-  // const setDays = (days) => {
-  //   setState(prev => ({ ...prev, days }));
-  // }
-
-  // useEffect(() => {
-  //   Promise.all([
-  //     axios.get('/api/days'),
-  //     axios.get('/api/appointments'),
-  //     axios.get('/api/interviewers')
-  //   ]).then((all) => {
-  //     const days = all[0].data;
-  //     const appointments = all[1].data;
-  //     const interviewers = all[2].data;
-  //     setState(prev => ({ ...prev, days, appointments, interviewers }));
-  //   });
-  // }, []);
-
-  //////////////////////////////////////////////////////////////////
   const appointments = getAppointmentsForDay(state, state.day);
   const interviewers = getInterviewersForDay(state, state.day);
 
   const schedule = appointments.map((appointment) => {
-    // console.log("bruh");
-    // console.log(appointment.interview);
     const interview = getInterview(state, appointment.interview);
 
     return (
@@ -61,49 +31,6 @@ export default function Application(props) {
       />
     );
   });
-  //////////////////////////////////////////////////////////////////
-
-//   function bookInterview(id, interview) {
-
-//     const appointment = {
-//       ...state.appointments[id],
-//       interview: { ...interview }
-//     };
-
-//     const appointments = {
-//       ...state.appointments,
-//       [id]: appointment
-//     };
-
-//     return axios.put(`http://localhost:8001/api/appointments/${id}`, appointment).then((response) => {
-//       console.log("response", response);
-//       setState({
-//           ...state,
-//           appointments
-//         });
-//     })
-//   }
-
-//   function cancelInterview (id) {
-//     console.log(id);
-
-//     const appointment = {
-//       ...state.appointments[id],
-//       interview: null
-//     };
-
-//     const appointments = {
-//       ...state.appointments,
-//       [id]: appointment
-//     };
-
-//     return axios.delete(`http://localhost:8001/api/appointments/${id}`, appointment).then((response) => {
-//       setState({
-//         ...state,
-//         appointments
-//       })
-//     });
-// }
 
   return (
     <main className="layout">
