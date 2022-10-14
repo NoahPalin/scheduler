@@ -3,7 +3,7 @@ import React from "react";
 export default function Show(props) {
   const findInterviewername = function () {
     for (const id in props.interviewers) {
-      if (id == props.interviewer) {
+      if (parseInt(id) === props.interviewer) {
         return props.interviewers[id].name;
       }
     }
