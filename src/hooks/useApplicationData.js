@@ -29,7 +29,7 @@ export default function useApplicationData() {
     });
   }, []);
 
-  function bookInterview(id, interview) {
+  function bookInterview(id, interview, mode) {
 
     const appointment = {
       ...state.appointments[id],
@@ -47,13 +47,21 @@ export default function useApplicationData() {
         appointments
       });
     }).then(() => {
-      const getDayIndex = state.days.findIndex(value => value.name === state.day)
-      const newDayInformation = { ...state.days[getDayIndex], spots: state.days[getDayIndex].spots - 1 }
+      const getDayIndex = state.days.findIndex(value => value.name === state.day);
 
-      const updatedState = state.days;
-      updatedState[getDayIndex] = newDayInformation;
+      if (mode === "EDIT") {
+        const newDayInformation = { ...state.days[getDayIndex], spots: state.days[getDayIndex].spots };
+        const updatedState = state.days;
+        updatedState[getDayIndex] = newDayInformation;
 
-      setDays(updatedState);
+        setDays(updatedState);
+      } else {
+        const newDayInformation = { ...state.days[getDayIndex], spots: state.days[getDayIndex].spots - 1 };
+        const updatedState = state.days;
+        updatedState[getDayIndex] = newDayInformation;
+
+        setDays(updatedState);
+      }
     })
   }
 
