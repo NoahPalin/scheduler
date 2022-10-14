@@ -41,7 +41,7 @@ export default function useApplicationData() {
       [id]: appointment
     };
 
-    return axios.put(`http://localhost:8001/api/appointments/${id}`, appointment).then(() => {
+    return axios.put(`/api/appointments/${id}`, appointment).then(() => {
       setState({
         ...state,
         appointments
@@ -71,7 +71,7 @@ export default function useApplicationData() {
       interview: null
     };
 
-    return axios.delete(`http://localhost:8001/api/appointments/${id}`, appointment).then((response) => {
+    return axios.delete(`/api/appointments/${id}`, appointment).then((response) => {
       const getDayIndex = state.days.findIndex(value => value.name === state.day)
       const newDayInformation = { ...state.days[getDayIndex], spots: state.days[getDayIndex].spots + 1 }
 

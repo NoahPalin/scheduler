@@ -34,3 +34,9 @@ npm test
 ```sh
 npm run storybook
 ```
+
+## Dependencies
+- Axios
+- React
+- Storybook
+- Normalize.css

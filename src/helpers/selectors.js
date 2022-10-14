@@ -38,19 +38,15 @@ export function getInterview(state, interview) {
 export function getInterviewersForDay(state, day) {
   if (!state.days) {
     return [];
-  }
-  // const filteredNames = state.users.filter(user => user.name === name);
-  // return filteredNames;
+  };
 
   const dayObj = state.days.find(object => object.name === day);
-  // console.log(allAppointments);
 
   if (!dayObj) {
     return [];
   }
 
   const interviewers = dayObj.interviewers;
-  // console.log(appointmentList)
 
   let results = [];
   for (let id of interviewers) {
